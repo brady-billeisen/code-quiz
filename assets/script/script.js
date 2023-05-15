@@ -1,78 +1,97 @@
 var startBtn = document.querySelector('#start-btn');
-var answerBtns = document.querySelectorAll('.answer');
+var answerBtns = document.querySelectorAll('.answer input');
 var submitBtn = document.querySelector('#submit');
-var startEl = document.querySelector('#start')
-var quizEl = document.querySelector('#quiz')
-var endEl = document.querySelector('#end')
+var startEl = document.querySelector('#start');
+var quizEl = document.querySelector('#quiz');
+var endEl = document.querySelector('#end');
+var quizContainer = document.getElementById("quiz");
+questionIndex = 0;
+var score = 0;
 var quizData = [
     {
         question: "What should be wrapped around an item/items to signify it's an array?",
         answers: [
-            {answer: "A. {} - Curly brackets", correct: false},
-            {answer: "B. [] - Square brackets", correct: true},
-            {answer: "C. () - Parentheses", correct: false},
-            {answer: "D. // - Double forward slash", correct: false},
+            {answer: "  {} - Curly brackets", correct: false},
+            {answer: "  [] - Square brackets", correct: true},
+            {answer: "  () - Parentheses", correct: false},
+            {answer: "  // - Double forward slash", correct: false},
         ]
     },
     {
-        question: "what does '||' symbolize in javascript?",
+        question: "What does '||' symbolize in javascript?",
         answers: [
-            {answer: "A. It symbolizes 'or'", correct: true},
-            {answer: "B. It symbolizes 'and'", correct: false},
-            {answer: "C. Trick question, it symbolizes nothing", correct: false},
-            {answer: "D. It symbolizes the division operator", correct: false},
+            {answer: "  It symbolizes 'or'", correct: true},
+            {answer: "  It symbolizes 'and'", correct: false},
+            {answer: "  Trick question, it symbolizes nothing", correct: false},
+            {answer: "  It symbolizes the division operator", correct: false},
         ]
     },
     {
         question: "What does HTML stand for?",
         answers: [
-            {answer: "A. Hypertext Markdown Language", correct: false},
-            {answer: "B. High Transfer Markup Language", correct: false},
-            {answer: "C. Hypertext Markup Language", correct: true},
-            {answer: "D. None of the above", correct: false},
+            {answer: "  Hypertext Markdown Language", correct: false},
+            {answer: "  High Transfer Markup Language", correct: false},
+            {answer: "  Hypertext Markup Language", correct: true},
+            {answer: "  None of the above", correct: false},
         ]
     },
     {
         question: "When using a for loop, if you wanted to make i add 1 to itself through each loop, what would you use?",
         answers: [
-            {answer: "A. i--", correct: false},
-            {answer: "B. i++", correct: true},
-            {answer: "C. i**", correct: false},
-            {answer: "D. None of the above", correct: false},
+            {answer: "  i--", correct: false},
+            {answer: "  i++", correct: true},
+            {answer: "  i**", correct: false},
+            {answer: "  None of the above", correct: false},
         ]
     }
-]
-var score = 0
+];
 
-function createQuiz() {
-    var quizContainer = document.getElementById("quiz");
+function displayQuestion() {
+    var questionContainer = document.createElement("div");
+    questionContainer.classList.add("question");
+    
+    var question = document.createElement("h3")
+    question.textContent = quizData[questionIndex].question;
 
-    for (var i = 0; i < quizData.length; i++) {
-        var questionContainer = document.createElement("div");
-        questionContainer.classList.add("question");
-        var question = document.createElement("h3")
-        question.textContent = quizData[i].question;
+    questionContainer.appendChild(question);
 
-        questionContainer.appendChild(question);
+    for (var i = 0; i < quizData[questionIndex].answers.length; i++) {
+        var answerContainer = document.createElement("div");
+        answerContainer.classList.add("answer");
 
-        for (var x = 0; x < quizData[i].answers.length; x++) {
-            var answerContainer = document.createElement("div");
-            answerContainer.classList.add("answer");
+        var answer = document.createElement("input");
+        answer.type = "radio";
+        answer.name = "question" + questionIndex;
+        answer.value = quizData[questionIndex].answers[i].answer;
 
-            var answer = document.createElement("input");
-            answer.type = "radio";
-            answer.name = "question" + i;
-            answer.value = quizData[i].answers[x].answer;
+        var answerLabel = document.createElement("label");
+        answerLabel.textContent = quizData[questionIndex].answers[i].answer
 
-            var answerLabel = document.createElement("label");
-            answerLabel.textContent = quizData[i].answers[x].answer
+        answerContainer.appendChild(answer);
+        answerContainer.appendChild(answerLabel);
 
-            answerContainer.appendChild(answer);
-            answerContainer.appendChild(answerLabel);
+        questionContainer.appendChild(answerContainer);
 
-            questionContainer.appendChild(answerContainer);
-        }
-        quizContainer.appendChild(questionContainer);
+        answer.addEventListener('click', handleAnswerClick);
+    }
+    quizContainer.innerHTML = "";
+    quizContainer.appendChild(questionContainer);
+    // questionIndex++;
+}
+
+function handleAnswerClick() {
+    var selectedAnswer = this.value
+
+    questionIndex++;
+    score++;
+
+    if (questionIndex < quizData.length) {
+        displayQuestion();
+    } else {
+        startEl.style.display = null;
+        quizEl.style.display = "none";
+        endEl.style.display = null;
+        console.log("Your score: " + score)
     }
 }
 
@@ -81,18 +100,10 @@ startBtn.addEventListener('click', function() {
     startEl.style.display = "none";
     quizEl.style.display = null;
     endEl.style.display = "none";
+    displayQuestion();
 });
-answerBtns.forEach(function(answerBtn) {
-    answerBtn.addEventListener('click', function() {
-        startEl.style.display = "none";
-        quizEl.style.display = "none";
-        endEl.style.display = null;
-    })
-})
 submitBtn.addEventListener('click', function() {
     startEl.style.display = null;
     quizEl.style.display = "none";
     endEl.style.display = "none";
 });
-
-createQuiz();
