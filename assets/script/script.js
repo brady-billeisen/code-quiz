@@ -59,16 +59,10 @@ function displayQuestion() {
         var answerContainer = document.createElement("div");
         answerContainer.classList.add("answer");
 
-        var answer = document.createElement("input");
-        answer.type = "radio";
-        answer.name = "question" + questionIndex;
-        answer.value = quizData[questionIndex].answers[i].answer;
-
-        var answerLabel = document.createElement("label");
-        answerLabel.textContent = quizData[questionIndex].answers[i].answer
+        var answer = document.createElement("button");
+        answer.textContent = quizData[questionIndex].answers[i].answer;
 
         answerContainer.appendChild(answer);
-        answerContainer.appendChild(answerLabel);
 
         questionContainer.appendChild(answerContainer);
 
