@@ -77,7 +77,7 @@ function handleAnswerClick() {
     var selectedAnswer = this.value
 
     questionIndex++;
-    score++;
+    score++
 
     if (questionIndex < quizData.length) {
         displayQuestion();
