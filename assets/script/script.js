@@ -65,6 +65,10 @@ function displayQuestion() {
         answer.setAttribute("style", "background-color: #5a189a; border-radius: 10px; color: white; margin: 2px; cursor: pointer; padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px; font-size: 15px;")
         answer.textContent = quizData[questionIndex].answers[i].answer;
 
+        var scoreDisplay = document.createElement("p");
+        scoreDisplay.textContent = "Score: " + score;
+        questionContainer.appendChild(scoreDisplay);
+
         answerContainer.appendChild(answer);
 
         questionContainer.appendChild(answerContainer);
@@ -78,13 +82,20 @@ function displayQuestion() {
 function handleAnswerClick() {
     var selectedAnswer = this.value
 
+    for (var i = 0; i < quizData[questionIndex].answers.length; i++) {
+        var answer = quizData[questionIndex].answers[i];
+        if (answer.answer === selectedAnswer && answer.correct) {
+            score++;
+            break;
+        }
+    }
+
     questionIndex++;
-    score++
 
     if (questionIndex < quizData.length) {
         displayQuestion();
     } else {
-        startEl.style.display = null;
+        startEl.style.display = "none";
         quizEl.style.display = "none";
         endEl.style.display = null;
         console.log("Your score: " + score)
