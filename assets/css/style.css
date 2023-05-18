@@ -10,16 +10,31 @@ body {
     background-image: linear-gradient(to bottom, #adb5bd, white);
 }
 
-section {
+h2 {
+    display: flex;
+    text-align: center;
+    top: 0;
+}
+
+section header {
     height: 100vh;
     width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #5a189a;
 }
 
 div {
     text-align: center;
+}
+
+#timer {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 32px;
+    color: #5a189a;
 }
 
 .nav-home {

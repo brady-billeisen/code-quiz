@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
 </head>
+
 <body>
-    <main>
-        <nav class="nav-home">
+    <header>
+        <!-- <nav class="nav-home">
             <div>
                 <a href="./index.html">
                     <h1 class="home-text">Quiz Home</h1>
@@ -22,21 +24,34 @@
                     <h2 class="score-text">View High Scores</h2>
                 </a>
             </div>
-        </nav>
-        <section id="start">
-            <button id="start-btn">Start Quiz!</button>
-        </section>
-        <section id="quiz" style="display: none;">
-            <h2 class="answer">Quiz</h2>
-        </section>
-        <section id="end" style="display: none;">
-            <h2>Congrats!</h2>
-            <button id="submit">Submit</button>
-        </section>
+        </nav> -->
+        <div id="timer">00</div>
+    </header>
+    <main>
+        <div id="start">
+            <header>
+                <h2>Code Quiz</h2>
+                <button id="start-btn">Start!</button>
+            </header>
+        </div>
+        <div id="quiz" style="display: none;">
+            <header>
+                <h2 class="title">Quiz</h2>
+            </header>
+            <div id="questions">
+            </div>
+        </div>
+        <div id="end" style="display: none;">
+            <header>
+                <h2>Congrats!</h2>
+                <button id="submit">Submit</button>
+            </header>
+        </div>
         <footer>
             <h3>Built & created by Brady Billeisen</h3>
         </footer>
     </main>
     <script src="./assets/script/script.js"></script>
 </body>
+
 </html>
