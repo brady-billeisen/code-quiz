@@ -70,6 +70,10 @@ function startTimer() {
 function displayHighScores() {
     var scores = JSON.parse(localStorage.getItem('scores')) || [];
 
+    scores.sort(function(a, b) {
+        return b.score - a.score
+    })
+
     scoresBodyEl.innerHTML = '';
 
     for (var i = 0; i < scores.length; i++) {
