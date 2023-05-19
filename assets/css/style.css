@@ -31,6 +31,26 @@ div {
     text-align: center;
 }
 
+table{
+    border-collapse: collapse;
+    border: 1px solid #f8f9fa;
+    }
+    
+table td{
+    padding: 5px;
+    background-color: #5a189a;
+    background-image: linear-gradient(to right, #5a189a, #240046);
+    color: white;
+    border:1px solid #f8f9fa;
+    width: 30vw;
+}
+
+table th {
+    padding: 5px;
+    background-color: #240046;
+    color: #f8f9fa;
+}
+
 #timer {
     text-align: center;
     margin-top: 30px;
