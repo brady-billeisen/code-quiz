@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
-    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <header>
-        <!-- <nav class="nav-home">
+        <nav class="nav-home">
             <div>
                 <a href="./index.html">
                     <h1 class="home-text">Quiz Home</h1>
@@ -24,7 +24,7 @@
                     <h2 class="score-text">View High Scores</h2>
                 </a>
             </div>
-        </nav> -->
+        </nav>
         <div id="timer">00</div>
     </header>
     <main>
@@ -44,13 +44,26 @@
         <div id="end" style="display: none;">
             <header>
                 <h2>Congrats!</h2>
+                <input id="initials" />
                 <button id="submit">Submit</button>
             </header>
         </div>
-        <footer>
-            <h3>Built & created by Brady Billeisen</h3>
-        </footer>
+        <div id="high-scores" style="display: none;">
+            <header>
+                <h2>High Scores</h2>
+                <table>
+                    <tr>
+                        <th>Initials</th>
+                        <th>Score</th>
+                    </tr>
+                    <tbody id="scores-body"></tbody>
+                </table>
+            </header>
+        </div>
     </main>
+    <footer>
+        <h3>Built & created by Brady Billeisen</h3>
+    </footer>
     <script src="./assets/script/script.js"></script>
 </body>
 

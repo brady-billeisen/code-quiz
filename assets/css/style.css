@@ -10,19 +10,21 @@ body {
     background-image: linear-gradient(to bottom, #adb5bd, white);
 }
 
+main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 h2 {
     display: flex;
     text-align: center;
-    top: 0;
-}
-
-section header {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    color: #5a189a;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 32px;
 }
 
 div {
@@ -43,12 +45,19 @@ div {
     padding: 20px;
 }
 
-.nav-scores {
+.nav-scores h2 {
     background-color: #dee2e6;
-    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    color: #5a189a;
+    font-family: Helvetica Neue;
+    align-items: center;
+    justify-content: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
-}
+    height: 60px;
+  }
 
 .home-text {
     text-decoration: none;
@@ -59,6 +68,7 @@ div {
 }
 
 .score-text {
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: bold;
     display: flex;
@@ -66,6 +76,8 @@ div {
     font-family: Helvetica Neue;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    margin: 0;
 }
 
 .score-text:hover {
@@ -98,7 +110,7 @@ footer h3 {
 
 #start-btn {
     display: block;
-    width: 15%;
+    width: 100%;
     border: none;
     background-color: #5a189a;
     border-radius: 10px;
@@ -107,4 +119,41 @@ footer h3 {
     cursor: pointer;
     text-align: center;
     color: white;
+}
+
+#answer-btn {
+    display: block;
+    margin: 10px auto;
+    width: 50%;
+    border: none;
+    background-color: #5a189a;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+}
+
+#submit {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    border: none;
+    background-color: #5a189a;
+    border-radius: 10px;
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+}
+
+#initials {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
 }
